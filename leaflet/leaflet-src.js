@@ -12388,8 +12388,10 @@ L.Control.Layers = L.Control.extend({
 
 		if (obj.overlay) {
 			input = document.createElement('input');
-			input.type = 'checkbox';
+			//input.type = 'checkbox';
+			input.type = 'radio';
 			input.className = 'leaflet-control-layers-selector';
+			input.name = 'leaflet-overlay-radio';
 			input.defaultChecked = checked;
 		} else {
 			input = this._createRadioElement('leaflet-base-layers', checked);
