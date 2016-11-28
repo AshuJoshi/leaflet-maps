@@ -19,6 +19,13 @@ var Stamen_Toner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner/{
 	ext: 'png'
 });
 
+// var Terrain_Tiles = L.tileLayer.provider('OpenTopoMap');
+
+var OpenTopoMap = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	maxZoom: 17,
+	attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
 // popdns - layer to show Population Density
 var popdns = new L.layerGroup();
 // rnweng - layer to show Renewable Energy Goals
@@ -33,7 +40,8 @@ var map = L.map('map', {
 var baseLayers = {
     "OSM B&W" : OpenStreetMap_BlackAndWhite,
     "Stamen Toner" : Stamen_Toner,
-    "Stamen Watercolor" : Stamen_Watercolor
+    "Stamen Watercolor" : Stamen_Watercolor,
+    "Terrain Tiles" : OpenTopoMap
     
 };
 
