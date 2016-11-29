@@ -2,7 +2,7 @@
 var quakeData;
 var ql;
 
-var quakeAttrib = 'Earthquake data &copy; <a href="http://earthquake.usgs.gov/">USGS</a>';
+var quakeAttrib = 'Earthquake data &copy; <a href="https://earthquake.usgs.gov/">USGS</a>';
 
 function onEachFeatureQuake(feature, layer) {
     var popupText = "Magnitude: " + feature.properties.mag
@@ -14,7 +14,7 @@ function onEachFeatureQuake(feature, layer) {
 }
 
 // quakeLayer = function() {
-//     $.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson", function(data) { 
+//     $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson", function(data) { 
 //         // addDataToMap(data, layer);
 //     quakeData = data;
 //     ql = L.geoJson(quakeData, {
@@ -23,7 +23,7 @@ function onEachFeatureQuake(feature, layer) {
 // });
 
 function quakeLayer() {
-    $.getJSON("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson", function(data) { 
+    $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson", function(data) { 
         // addDataToMap(data, layer);
     quakeData = data;
     ql = L.geoJson(quakeData, {
