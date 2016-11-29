@@ -14,7 +14,7 @@
 		<!--<script src="leaflet/leaflet.js"></script>-->
 		<!--<script src="leaflet/leaflet-src.js"></script>-->
 		<script src="leaflet/leaflet-min.js"></script>
-
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<link rel="stylesheet" href="maps.css" type="text/css"></script>
 
 	</head>
@@ -22,9 +22,15 @@
 
 		<div id='map'></div>
 
+		<script type="text/javascript" src="quake.js"></script>
 		<script type="text/javascript" src="us-states.js"></script>
 		<script type="text/javascript" src="us-renewable.js"></script>
 		<script type="text/javascript" src="us-popdns.js"></script>
+		<script type="text/javascript" src="quake.js"></script>
 		<script type="text/javascript" src="mapping.js"></script>
+		<script type="text/javascript">
+		// Invoking quakeLayer to get the GeoJSON data setup prior to it being added
+			quakeLayer();
+		</script>		
 	</body>
 </html>

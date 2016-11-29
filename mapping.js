@@ -28,6 +28,8 @@ var OpenTopoMap = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
 var popdns = new L.layerGroup();
 // rnweng - layer to show Renewable Energy Goals
 var rnweng = new L.layerGroup();
+// quake - layer to show quakes
+var quake = new L.layerGroup();
 
 var map = L.map('map', {
     center: [37.8, -96],
@@ -45,7 +47,8 @@ var baseLayers = {
 
 var overlays = {
     "Population Density": popdns,
-    "State Renewable" : rnweng
+    "State Renewable" : rnweng,
+    "Earthquakes" : quake
 };
 
 var options = {
@@ -63,7 +66,6 @@ map.on('overlayadd', function (eventLayer) {
     // Switch to the Population legendPopDensity...
     switch(eventLayer.name) {
         case 'Population Density':
-            console.log("Overlay Add, Pop DNS");
             infoPopDensity.addTo(this);
             legendPopDensity.addTo(this);
             geojson.addTo(this);
@@ -74,6 +76,11 @@ map.on('overlayadd', function (eventLayer) {
             geojsonRnwEng.addTo(this);
             legendRnwEng.addTo(this);
             map.attributionControl.addAttribution(rnwengAttrib);
+            break;
+        case 'Earthquakes':
+            // ql is a GeoJSON layer created during page load...
+            ql.addTo(this);
+            map.attributionControl.addAttribution(quakeAttrib);
             break;
         default:
             break;
@@ -94,6 +101,10 @@ map.on('overlayremove', function (eventLayer) {
             this.removeControl(geojsonRnwEng);
             this.removeControl(legendRnwEng);
             map.attributionControl.removeAttribution(rnwengAttrib);
+            break;
+        case 'Earthquakes':
+            this.removeControl(ql);
+            map.attributionControl.removeAttribution(quakeAttrib);
             break;
         default:
             break;
